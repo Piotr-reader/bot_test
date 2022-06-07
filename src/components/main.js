@@ -71,22 +71,24 @@ for (let i = 0; i < questionNumber.length; i++) {
         <p class="hint-board__text"><span class="hint-board__span-accent">Правильный
                 ответ:</span>${arrCorrectAnswer[i]}.</p>
     </div>
-    <p class="puzzle__video-description">Подсказка №1</p>
-    <picture class="picture">
-        <source srcset="${video_1_min}" type="image/jpeg" media="(min-width:769px)">
-        <source srcset="${video_1_mob}" type="image/jpeg" media="(max-width:768px)">
-        <img class="img_video" src="${video_1_min}" alt="video">
-        <iframe class="puzzle__video" width="720" height="405"
-             frameborder="0" allowfullscreen></iframe>
-    </picture>
-    <p class="puzzle__video-description">Подсказка №2</p>
-    <picture class="picture">
-        <source srcset="${video_1_min}" type="image/jpeg" media="(min-width:769px)">
-        <source srcset="${video_1_mob}" type="image/jpeg" media="(max-width:768px)">
-        <img class="img_video" src="${video_1_min}" alt="video">
-        <iframe class="puzzle__video" width="720" height="405"
-             frameborder="0" allowfullscreen></iframe>
-    </picture>
+    <div class="puzzle__help ${questionNumber[i]}">
+        <picture class="picture">
+            <p class="puzzle__video-description">Подсказка №1</p>
+            <source srcset="${video_1_min}" type="image/jpeg" media="(min-width:769px)">
+            <source srcset="${video_1_mob}" type="image/jpeg" media="(max-width:768px)">
+            <img class="img_video" src="${video_1_min}" alt="video">
+            <iframe class="puzzle__video" width="720" height="405"
+                frameborder="0" allowfullscreen></iframe>
+        </picture>
+        <picture class="picture">
+            <p class="puzzle__video-description">Подсказка №2</p>
+            <source srcset="${video_1_min}" type="image/jpeg" media="(min-width:769px)">
+            <source srcset="${video_1_mob}" type="image/jpeg" media="(max-width:768px)">
+            <img class="img_video" src="${video_1_min}" alt="video">
+            <iframe class="puzzle__video" width="720" height="405"
+                frameborder="0" allowfullscreen></iframe>
+        </picture>
+    </div>
     </section>`);
 }
 
