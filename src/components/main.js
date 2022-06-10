@@ -1,7 +1,9 @@
 import questionNumber from "./data";
 import logo from "../images/farba_logo_social.jpg";
-import video_1_mob from "../images/img_video_1_mob.png";
-import video_1_min from "../images/img_video_1_min.png";
+import img_video_1_mob from "../images/img_video_1_mob.png";
+
+
+
 let newLi = [];
 const descriptionH2 = "Несколько рекомендаций по&nbsp;прохождению квеста!";
 const arrDescriptionLi = [
@@ -47,6 +49,7 @@ const hintBoard = [
 Самую позднюю из&nbsp;них создал Владимир Бескровный в&nbsp;2021&nbsp;году.`,
 ];
 let newQuestion = [];
+
 for (let i = 0; i < questionNumber.length; i++) {
   newQuestion.push(`<section class="puzzle ${questionNumber[i]}" id="section_${i + 1}">
     <h2 class="puzzle__number ${questionNumber[i]}">${i + 1}.</h2>
@@ -71,25 +74,24 @@ for (let i = 0; i < questionNumber.length; i++) {
         <p class="hint-board__text"><span class="hint-board__span-accent">Правильный
                 ответ:</span>${arrCorrectAnswer[i]}.</p>
     </div>
-    <div class="puzzle__help ${questionNumber[i]}">
-        <picture class="picture">
-            <p class="puzzle__video-description">Подсказка №1</p>
-            <source srcset="${video_1_min}" type="image/jpeg" media="(min-width:769px)">
-            <source srcset="${video_1_mob}" type="image/jpeg" media="(max-width:768px)">
-            <img class="img_video" src="${video_1_min}" alt="video">
-            <iframe class="puzzle__video" width="720" height="405"
-                frameborder="0" allowfullscreen></iframe>
-        </picture>
-        <picture class="picture">
-            <p class="puzzle__video-description">Подсказка №2</p>
-            <source srcset="${video_1_min}" type="image/jpeg" media="(min-width:769px)">
-            <source srcset="${video_1_mob}" type="image/jpeg" media="(max-width:768px)">
-            <img class="img_video" src="${video_1_min}" alt="video">
-            <iframe class="puzzle__video" width="720" height="405"
-                frameborder="0" allowfullscreen></iframe>
-        </picture>
+    <div class="main_help">
+
     </div>
     </section>`);
 }
 
-export default { sectionDescription, newQuestion };
+class CreateHelpSection {
+  constructor(putTo) {
+    this.putTo = putTo;
+  }
+  createHelp() {
+    let newEl = document.createElement("picture");
+    newEl.classList.add("picture");
+    newEl.innerHTML = ` <p class="puzzle__video-description">Подсказка</p>
+    <img class="img_video" src="${img_video_1_mob}" alt="video">
+    <iframe class="puzzle__video" width="720" height="405"
+        frameborder="0" allowfullscreen></iframe>`;
+    document.querySelector(`#section_${this.putTo}`).appendChild(newEl);
+  }
+}
+export default { sectionDescription, newQuestion, CreateHelpSection };
