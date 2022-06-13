@@ -1,6 +1,3 @@
-// const questionNumber = ["one", "two", "three", "four", "five", "six", "seven"];
-const questionNumber = ["one", "two", "three"];
-
 const arrQuestion = {
   1: [
     `Для разминки, как нам кажется, несложное задание.<br>ОН&nbsp;&mdash; это и&nbsp;серия космических кораблей США, и&nbsp;&laquo;хорошо
@@ -54,4 +51,9 @@ const arrCorrectAnswer = {
   2: [`2021`],
   3: [`2021`],
 };
-export default { questionNumber, arrQuestion, arrPlaceholder, hintBoard, arrCorrectAnswer };
+
+// Вписываются номера вопросов строками ("const arrImgQuestion = ["1", "3"]")
+const arrHelpSection = [];
+const arrImgQuestion = [];
+
+export default { arrQuestion, arrPlaceholder, hintBoard, arrCorrectAnswer, arrHelpSection, arrImgQuestion };

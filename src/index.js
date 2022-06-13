@@ -8,7 +8,8 @@ import main from "./components/main";
 const { sectionDescription, newQuestion, CreateHelpSection, CreateImgQuestionSection } = main;
 import popupCreate from "./components/popup";
 import logoFarba from "./images/farba_logo_social.jpg";
-
+import data from "./components/data";
+const { arrHelpSection, arrImgQuestion } = data;
 const wrapper = document.createElement("div");
 wrapper.classList.add("wrapper");
 document.body.prepend(wrapper);
@@ -45,11 +46,20 @@ const createHeader = [
 ];
 createHeader.forEach((newEl) => createHeader[newEl]);
 document.querySelector(".navbar_width").innerHTML = createLi.join("").toString();
-document.querySelector(".questions").innerHTML = newQuestion;
+document.querySelector(".questions").innerHTML = newQuestion.join("");
 
 // Создать Подсказку
-// const createHelp = new CreateHelpSection("1").createHelp();
-// const createHelp2 = new CreateHelpSection("3").createHelp();
+if (arrHelpSection.length !== 0) {
+  const createHelp = [];
+  arrHelpSection.forEach((help) => {
+    createHelp.push(new CreateHelpSection(help).createHelp());
+  });
+}
 
 // Создать Картинку к вопросу
-// const createImgQuestion = new CreateImgQuestionSection("2").createImgQuaestionSection();
+if (arrImgQuestion.length !== 0) {
+  const createImg = [];
+  arrImgQuestion.forEach((img) => {
+    createImg.push(new CreateImgQuestionSection(img).createImgQuaestionSection());
+  });
+}

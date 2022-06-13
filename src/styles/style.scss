@@ -1,5 +1,8 @@
 $color: #2a2c2f;
 $background-color: #fff;
+ul {
+  list-style-type: none;
+}
 
 body {
   background-color: $background-color;
@@ -166,7 +169,7 @@ img {
   box-shadow: 0 0 8px rgb(230, 230, 0);
 }
 .puzzle__help {
-  display: flex;
+  // display: flex;
   text-align: center;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -176,8 +179,11 @@ img {
   margin: 15px 0 10px;
   font-weight: 700;
 }
-.img_video {
+.img_video,
+.puzzle__image {
   max-height: 202px;
+  margin: 0 auto;
+  display: block;
 }
 .img_video:hover {
   cursor: pointer;
@@ -226,10 +232,10 @@ img {
     max-width: 50px;
   }
   .score {
-    font-size: 0.4em;
+    font-size: 0.6em;
   }
   .form__button {
-    font-size: 0.4em;
+    font-size: 0.6em;
     border: 1px #2a2c2f solid;
   }
   .header_burger {

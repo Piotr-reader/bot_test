@@ -1,5 +1,5 @@
 import data from "./data";
-const { questionNumber, arrQuestion, arrPlaceholder, hintBoard, arrCorrectAnswer } = data;
+const { arrQuestion, arrPlaceholder, hintBoard, arrCorrectAnswer } = data;
 import logo from "../images/farba_logo_social.jpg";
 import img_video_1_mob from "../images/img_video_1_mob.png";
 
@@ -34,26 +34,26 @@ const arrWrongAnswer = [
 ответ&raquo;.`,
 ];
 let newQuestion = [];
-for (let i = 0; i < questionNumber.length; i++) {
-  newQuestion.push(`<section class="puzzle ${questionNumber[i]}" id="section_${i + 1}">
-    <h2 class="puzzle__number ${questionNumber[i]}">${i + 1}.</h2>
+for (let i = 0; i < Object.keys(arrQuestion).length; i++) {
+  newQuestion.push(`<section class="puzzle number_${[i + 1]}" id="section_${i + 1}">
+    <h2 class="puzzle__number number_${[i + 1]}">${i + 1}.</h2>
     <p class="puzzle__text_${[i + 1]}">${arrQuestion[i + 1]}</p>
     <form class="form">
-        <label class="form__label" for="${questionNumber[i]}">Ваш ответ:</label>
-        <input class="form__field" type="number" min="1800" max="2022" id="${questionNumber[i]}" name="${questionNumber[i]}"
+        <label class="form__label" for="number_${[i + 1]}">Ваш ответ:</label>
+        <input class="form__field" type="number" min="1800" max="2022" id="number_${[i + 1]}" name="number_${[i + 1]}"
             placeholder="${arrPlaceholder[i + 1]}" autocomplete="off"">
         <div class="form__button-container">
-            <button class="form__button form__button_type_submit ${questionNumber[i]}" type="button">Ответить</button>
-            <button class="form__button form__button_type_hint ${questionNumber[i]}" type="button">Узнать ответ</button>
+            <button class="form__button form__button_type_submit number_${[i + 1]}" type="button">Ответить</button>
+            <button class="form__button form__button_type_hint number_${[i + 1]}" type="button">Узнать ответ</button>
         </div>
     </form>
-    <div class="wrong-answer-board ${questionNumber[i]}">
+    <div class="wrong-answer-board number_${[i + 1]}">
         <p class="wrong-answer-board__text">${arrWrongAnswer}</p>
     </div>
-    <div class="correct-answer-board ${questionNumber[i]}">
-        <p class="correct-answer-board__text ${questionNumber[i]}"></p>
+    <div class="correct-answer-board number_${[i + 1]}">
+        <p class="correct-answer-board__text number_${[i + 1]}"></p>
     </div>
-    <div class="hint-board ${questionNumber[i]}">
+    <div class="hint-board number_${[i + 1]}">
         <p class="hint-board__text">${hintBoard[i + 1]}</p>
         <p class="hint-board__text"><span class="hint-board__span-accent">Правильный
                 ответ:</span>${arrCorrectAnswer[i + 1][0]}.</p>
@@ -67,7 +67,7 @@ class CreateHelpSection {
   }
   createHelp() {
     let newEl = document.createElement("picture");
-    newEl.classList.add("picture");
+    newEl.classList.add("puzzle__help");
     newEl.innerHTML = `
       <p class="puzzle__video-description">Подсказка к вопросу ${this.putTo}</p>
       <img class="img_video" src="${img_video_1_mob}" alt="video">
@@ -82,7 +82,7 @@ class CreateImgQuestionSection {
   }
   createImgQuaestionSection() {
     let newEl = document.createElement("img");
-    newEl.classList.add("img_video");
+    newEl.classList.add("puzzle__image");
     newEl.src = `${img_video_1_mob}`;
     newEl.setAttribute("alt", "question img");
     document.querySelector(`.puzzle__text_${this.putTo}`).insertAdjacentElement("afterend", newEl);
