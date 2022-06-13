@@ -10,6 +10,7 @@ import popupCreate from "./components/popup";
 import logoFarba from "./images/farba_logo_social.jpg";
 import data from "./components/data";
 const { arrHelpSection, arrImgQuestion } = data;
+import script from "./components/script";
 const wrapper = document.createElement("div");
 wrapper.classList.add("wrapper");
 document.body.prepend(wrapper);
@@ -63,3 +64,9 @@ if (arrImgQuestion.length !== 0) {
     createImg.push(new CreateImgQuestionSection(img).createImgQuaestionSection());
   });
 }
+const btnTypeSubmit = document.querySelectorAll(".form__button_type_submit");
+const inputValue = document.querySelectorAll(".form__field");
+const btnTypeHint = document.querySelectorAll(".form__button_type_hint ");
+const hintBoard = document.querySelectorAll(".hint-board");
+
+script.toggleHintBoard(btnTypeHint, hintBoard);

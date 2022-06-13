@@ -55,7 +55,7 @@ for (let i = 0; i < Object.keys(arrQuestion).length; i++) {
     </div>
     <div class="hint-board number_${[i + 1]}">
         <p class="hint-board__text">${hintBoard[i + 1]}</p>
-        <p class="hint-board__text"><span class="hint-board__span-accent">Правильный
+        <p class="hint-board__text reverse"><span class="hint-board__span-accent">Правильный
                 ответ:</span>${arrCorrectAnswer[i + 1][0]}.</p>
     </div>
     </section>`);

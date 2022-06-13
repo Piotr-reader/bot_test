@@ -3,7 +3,6 @@ $background-color: #fff;
 ul {
   list-style-type: none;
 }
-
 body {
   background-color: $background-color;
   font-family: "Neucha", cursive;
@@ -226,7 +225,13 @@ img {
 .popup {
   display: none;
 }
-
+.visible {
+  display: block;
+}
+.reverse {
+  transform: rotate(180deg);
+  font-style: italic;
+}
 @media (max-width: 768px) {
   .header_logo_img {
     max-width: 50px;
