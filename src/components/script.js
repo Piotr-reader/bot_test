@@ -1,3 +1,9 @@
+import data from "./data";
+const {arrCorrectAnswer, arrCorrectAnswersText, wrongAnswersText} = data;
+
+const correctAnswersValue = [];
+let correctAnswersId = [];
+
 const toggleHintBoard = (btnTypeHint, hintBoard) => {
   [...btnTypeHint].forEach((btn) =>
     btn.addEventListener("click", (e) => {
@@ -9,4 +15,31 @@ const toggleHintBoard = (btnTypeHint, hintBoard) => {
     })
   );
 };
-export default { toggleHintBoard };
+const valueInput = (btnTypeSubmit, inputValue, correctAnswersScore) => {
+  [...btnTypeSubmit].forEach((btn) =>
+    btn.addEventListener("click", (e) => {
+      [...inputValue].forEach((input, index) => {
+        if (input.id === e.target.classList[2]) {
+          const dataAnswer = arrCorrectAnswer[index+1];
+          const inputAnswer = input.value.trim().toLowerCase();
+          if (dataAnswer.includes(inputAnswer)) {
+            input.setAttribute("disabled", "disabled");
+            correctAnswersValue.push(input.value);
+            correctAnswersId.push(input.id);
+            correctAnswersId = [...new Set(correctAnswersId)];
+            correctAnswersScore.innerHTML = correctAnswersId.length.toString();
+            document.querySelector(`.wrong-answer-board.${input.id}`).style.display = 'none';
+            document.querySelector(`.correct-answer-board.${input.id}`).style.display = 'block';
+            document.querySelector(`.correct-answer-board__text.${input.id}`).innerHTML = `${arrCorrectAnswersText[correctAnswersId.length-1]}`;
+          } else {
+            document.querySelector(`.wrong-answer-board.${input.id}`).style.display = 'block';
+            document.querySelector(`.wrong-answer-board__text.${input.id}`).innerHTML = wrongAnswersText;
+          }
+        }
+      });
+    })
+  );
+};
+
+
+export default { toggleHintBoard, valueInput };

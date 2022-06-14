@@ -1,5 +1,5 @@
 import data from "./data";
-const { arrQuestion, arrPlaceholder, hintBoard, arrCorrectAnswer } = data;
+const {headerTitle, arrQuestion, arrPlaceholder, hintBoard, arrCorrectAnswer } = data;
 import logo from "../images/farba_logo_social.jpg";
 import img_video_1_mob from "../images/img_video_1_mob.png";
 
@@ -21,6 +21,7 @@ for (let i = 0; i < arrDescriptionLi.length; i++) {
   newLi.push(`<li class="description__text-item">${arrDescriptionLi[i]}</li>`);
 }
 const sectionDescription = `<section class="description">
+<h1 class="header__title">${headerTitle}</h1>
 <img class="description__image" src="${logo}">
 <h2 class="description__title">${descriptionH2}</h2>
 <ul class="description__text">${newLi.join("").toString()}
@@ -48,7 +49,7 @@ for (let i = 0; i < Object.keys(arrQuestion).length; i++) {
         </div>
     </form>
     <div class="wrong-answer-board number_${[i + 1]}">
-        <p class="wrong-answer-board__text">${arrWrongAnswer}</p>
+        <p class="wrong-answer-board__text number_${[i + 1]}">${arrWrongAnswer}</p>
     </div>
     <div class="correct-answer-board number_${[i + 1]}">
         <p class="correct-answer-board__text number_${[i + 1]}"></p>
