@@ -74,3 +74,8 @@ const hintBoard = document.querySelectorAll(".hint-board");
 
 script.toggleHintBoard(btnTypeHint, hintBoard);
 script.valueInput(btnTypeSubmit, inputValue, correctAnswersScore);
+
+const resetBtn = document.querySelector(".btn__popup_reset");
+script.reset(resetBtn, correctAnswersScore);
+const giftBtn = document.querySelector(".btn_gift");
+script.gift(giftBtn, correctAnswersScore, arrQuestion);
